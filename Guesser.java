@@ -1,6 +1,7 @@
 package Inlamningsuppgift1;
 
 import java.io.Console;
+import java.util.Scanner;
 
 public class Guesser{
   private int low;
@@ -55,13 +56,23 @@ public class Guesser{
    * the player.
    */
   private String getReply(){
-    String reply = null;
+//    String reply = null;
+    Scanner s = new Scanner(System.in);
     
+    while(true) {
+    	String reply = s.nextLine().toUpperCase();
+    	if(!reply.equals("T") || !reply.equals("F")) {
+    	System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");
+    	}
+    	else {
+    		return reply;
+    	}
+    	
+    }
     // Write code here which reads a String from the console.
     // As long as it is not a valid reply (one of "T" and "F")
     // write an error message, and read a new reply.
     // When you have gotten a valid reply, return it.
-    return reply;
   }
 
   private void doGuesses(){
@@ -75,7 +86,7 @@ public class Guesser{
       System.out.println("Is the number less than or equal to " +
                          middle + "?");
       String reply = getReply();
-      if("T".equals(reply)){
+      if("T".equals(reply).toUpperCase()){
         // The number is less than or equal to middle
         // so we move down high to middle
         high = middle;
