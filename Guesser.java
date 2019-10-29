@@ -2,18 +2,17 @@ package Inlamningsuppgift1;
 
 import java.io.Console;
 
-/**
- * Assignment 1 - Guessing Game
- * 
- * Here's the unfinished source code
- * for the Guesser class. It is your
- * task to complete the missing parts.
- */
 public class Guesser{
   private int low;
   private int high;
-
-  /*
+  
+  public Guesser(int lowValue, int highValue) {
+	  this.low = lowValue;
+	  this.high = highValue;  
+  }
+  
+  /*initiserar värde i main när mn kallar på metoden/konstruktorn. 
+   * ToString kommer behövas
    * Task 1. Write code here for a constructor
    * which takes two int arguments and saves
    * them in the instance variables low and high.
@@ -33,8 +32,8 @@ public class Guesser{
    * rules() method, next the doGuesses() method.
    */
   public void start(){
-    // call the rules method here
-    // call the doGuesses() method here
+	  rules();
+	  doGuesses();
   }
 
   private void rules(){
@@ -57,6 +56,7 @@ public class Guesser{
    */
   private String getReply(){
     String reply = null;
+    
     // Write code here which reads a String from the console.
     // As long as it is not a valid reply (one of "T" and "F")
     // write an error message, and read a new reply.
