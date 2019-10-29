@@ -1,4 +1,3 @@
-package Inlamningsuppgift1;
 
 import java.io.Console;
 import java.util.Scanner;
@@ -16,7 +15,7 @@ public class Guesser{
    * ToString kommer behövas
    * Task 1. Write code here for a constructor
    * which takes two int arguments and saves
-   * them in the instance variables low and high.
+   * them in the instance q low and high.
    *
    * If you don't remember the syntax for how to write
    * constructors, revisit the chapter "Classes"
@@ -61,7 +60,7 @@ public class Guesser{
     
     while(true) {
     	String reply = s.nextLine().toUpperCase();
-    	if(!reply.equals("T") || !reply.equals("F")) {
+    	if(!reply.equals("T") && !reply.equals("F")) {
     	System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");
     	}
     	else {
@@ -86,7 +85,7 @@ public class Guesser{
       System.out.println("Is the number less than or equal to " +
                          middle + "?");
       String reply = getReply();
-      if("T".equals(reply).toUpperCase()){
+      if("T".equals(reply)){
         // The number is less than or equal to middle
         // so we move down high to middle
         high = middle;
