@@ -43,7 +43,7 @@ public class Guesser{
   }
 
   private void rules(){
-    System.out.println("Think of a number between " +
+    System.out.println("Hey! Think of a number between " +
                        low + " and "  + high);
     System.out.println("I'm going to ask a few questions in order " +
                        "to guess the number.");
