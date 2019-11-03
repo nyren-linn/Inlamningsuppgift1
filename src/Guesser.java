@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Guesser{
   private int low;
   private int high;
- 
-  /*initiserar värde i main när mn kallar på metoden/konstruktorn. 
+
+  /*initiserar värde i main när mn kallar på metoden/konstruktorn.
    * Task 1. Write code here for a constructor
    * which takes two int arguments and saves
    * them in the instance q low and high.
@@ -16,18 +16,18 @@ public class Guesser{
    * and review the section about constructors.
    *
    */
-  
+
   // Write the constructor below this line.
   public Guesser(int lowValue, int highValue) {
-	  
+
 	  if (lowValue>highValue) {
 		  throw new IllegalArgumentException("The first parameter must be lower than the second parameter");
 	  }
-	 
+
 	  this.low = lowValue;
-	  this.high = highValue;  
+	  this.high = highValue;
   }
-  
+
   public String toString() {
 	  return "low: " + low + " high: " + high;
   }
@@ -43,7 +43,7 @@ public class Guesser{
   }
 
   private void rules(){
-    System.out.println("Hey! Think of a number between " +
+    System.out.println("Think of a number between " +
                        low + " and "  + high);
     System.out.println("I'm going to ask a few questions in order " +
                        "to guess the number.");
@@ -54,7 +54,7 @@ public class Guesser{
    * Task 3. Complete the code for the getReply() method.
    * In the current version below, it returns null each
    * call, which is not what this method is supposed to do.
-   * 
+   *
    * Instead, change the method so that it reads a reply
    * from the player, and if it is "T" or "F", we have
    * a valid reply. Return the String that you read from
@@ -63,11 +63,11 @@ public class Guesser{
   private String getReply(){
 	String n = null;
     Scanner input = new Scanner(System.in);
-    
+
     while(true) {
     	String reply = input.nextLine().toUpperCase();
-    	if(Objects.equals(n, reply)) {		
-    		System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");		
+    	if(Objects.equals(n, reply)) {
+    		System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");
     	}
     	else if(!Objects.equals(reply,"T") && !Objects.equals(reply, "F")) {
 			System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");
@@ -75,7 +75,7 @@ public class Guesser{
     	else {
     		return reply;
     	}
-    	
+
     }
     // Write code here which reads a String from the console.
     // As long as it is not a valid reply (one of "T" and "F")
@@ -116,4 +116,4 @@ public class Guesser{
                        " (took me " + numberOfGuesses +
                        " guesses)");
   }
-}	
+}
