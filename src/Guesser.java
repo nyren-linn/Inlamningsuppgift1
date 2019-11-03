@@ -1,18 +1,12 @@
 
-import java.io.Console;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Guesser{
   private int low;
   private int high;
-  
-  public Guesser(int lowValue, int highValue) {
-	  this.low = lowValue;
-	  this.high = highValue;  
-  }
-  
+ 
   /*initiserar värde i main när mn kallar på metoden/konstruktorn. 
-   * ToString kommer behövas
    * Task 1. Write code here for a constructor
    * which takes two int arguments and saves
    * them in the instance q low and high.
@@ -24,7 +18,19 @@ public class Guesser{
    */
   
   // Write the constructor below this line.
-
+  public Guesser(int lowValue, int highValue) {
+	  
+	  if (lowValue>highValue) {
+		  throw new IllegalArgumentException("The first parameter must be lower than the second parameter");
+	  }
+	 
+	  this.low = lowValue;
+	  this.high = highValue;  
+  }
+  
+  public String toString() {
+	  return "low: " + low + " high: " + high;
+  }
 
   /*
    * Task 2. Complete the start() method, so that
@@ -55,14 +61,17 @@ public class Guesser{
    * the player.
    */
   private String getReply(){
-//    String reply = null;
-    Scanner s = new Scanner(System.in);
+	String n = null;
+    Scanner input = new Scanner(System.in);
     
     while(true) {
-    	String reply = s.nextLine().toUpperCase();
-    	if(!reply.equals("T") && !reply.equals("F")) {
-    	System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");
+    	String reply = input.nextLine().toUpperCase();
+    	if(Objects.equals(n, reply)) {		
+    		System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");		
     	}
+    	else if(!Objects.equals(reply,"T") && !Objects.equals(reply, "F")) {
+			System.out.println("Du har gett ett ogiltligt svar. Vänligen svara T eller F.");
+		}
     	else {
     		return reply;
     	}
@@ -107,5 +116,4 @@ public class Guesser{
                        " (took me " + numberOfGuesses +
                        " guesses)");
   }
-
 }	
